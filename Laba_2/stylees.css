@@ -78,6 +78,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
 }
 
 /* Specificity: Модифікатор для виділеної картки */
@@ -89,12 +90,12 @@ body {
 .card-badge {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: var(--spacing-xl);
+    transform: translateY(-50%);
     background-color: var(--color-primary);
     color: var(--color-surface);
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 6px 12px;
+    border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -149,7 +150,7 @@ body {
     font-weight: 600;
     padding: 12px 0;
     width: 100%;
-    border-radius: 30px; /* Форма пігулки */
+    border-radius: var(--border-radius);
     cursor: pointer;
     background-color: transparent;
     color: var(--color-primary);
