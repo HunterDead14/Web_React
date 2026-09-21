@@ -1,0 +1,181 @@
+/*  1. CSS Variables (Змінні з ТЗ) */
+:root {
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-surface: #ffffff;
+    --color-background: #f8fafc;
+    --color-text-main: #0f172a;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+
+    --font-family-base: 'Inter', sans-serif;
+
+    --font-size-base: 16px;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 1.5rem;
+    --font-size-small: 0.875rem;
+
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    --border-radius: 12px;
+}
+
+/* 2. Box Model & Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Inheritance (Успадкування) */
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-main);
+    background-color: var(--color-background);
+    line-height: 1.5;
+}
+
+/* 4. Layout & Typography */
+.pricing-section {
+    padding: 4rem 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-main);
+}
+
+.section-lead {
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+}
+
+.pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* 5. Reusable Classes (DRY) - Картки */
+.pricing-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Specificity: Модифікатор для виділеної картки */
+.pricing-card--featured {
+    border: 2px solid var(--color-primary);
+    position: relative;
+}
+
+.card-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: var(--spacing-xl);
+}
+
+.card-price span {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+/* Списки */
+.card-features {
+    list-style: none;
+    width: 100%;
+    margin-bottom: var(--spacing-xl);
+    flex-grow: 1;
+}
+
+.card-features li {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-muted);
+    font-size: 15px;
+}
+
+.card-features li::first-letter {
+    color: var(--color-primary);
+}
+
+/*6. Reusable Classes - Кнопки*/
+.btn {
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 30px; /* Форма пігулки */
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-background);
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border: none;
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* 7. Responsive Design (Адаптивність)*/
+@media (min-width: 768px) {
+    .pricing-grid {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+    }
+}
