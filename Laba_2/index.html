@@ -1,61 +1,131 @@
 <!doctype html>
 <html lang="uk">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Тарифні плани</title>
-    <link rel="stylesheet" href="stylees.css" />
-    <!-- Підключення шрифту Inter для відповідності макету -->
-    <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
+
+    <title>Тарифні плани для команд — Basic, Pro та Enterprise</title>
+    <meta
+      name="description"
+      content="Порівняйте тарифні плани Basic, Pro та Enterprise: вартість, користувачі, сховище та підтримка."
     />
-</head>
-<body>
-<section class="pricing-section">
-    <div class="container">
-        <h2 class="section-title">Наші тарифи</h2>
-        <p class="section-lead">Оберіть план, який найкраще підходить для ваших завдань</p>
-        <div class="pricing-grid">
+    <link rel="stylesheet" href="stylees.css" />
 
-            <!-- Картка Basic -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <nav aria-label="Основна навігація">
+          <a href="#pricing">Тарифні плани</a>
+          <a href="#benefits">Переваги</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="pricing-section"
+        id="pricing"
+        aria-labelledby="pricing-title"
+      >
+        <div class="container">
+          <h1 class="section-title" id="pricing-title">
+            Тарифні плани для команд
+          </h1>
+
+          <p class="section-lead">
+            Порівняйте можливості Basic, Pro та Enterprise і виберіть план для
+            своїх завдань.
+          </p>
+
+          <h2 class="plans-title">Оберіть тарифний план</h2>
+
+          <div class="pricing-grid">
             <article class="pricing-card">
-                <h3 class="card-title">Basic</h3>
-                <div class="card-price">$10 <span>/ month</span></div>
-                <ul class="card-features">
-                    <li>✓ 1 User</li>
-                    <li>✓ 5GB Storage</li>
-                    <li>✓ Basic Support</li>
-                </ul>
-                <button class="btn">Select</button>
+              <h3 class="card-title">Basic</h3>
+
+              <div class="card-price">$10 <span>/ місяць</span></div>
+
+              <ul class="card-features">
+                <li>✓ 1 користувач</li>
+                <li>✓ 5 ГБ сховища</li>
+                <li>✓ Базова підтримка</li>
+              </ul>
+
+              <p>Для невеликих команд із базовими потребами та підтримкою.</p>
+
+              <button class="btn" type="button">Обрати Basic</button>
             </article>
 
-            <!-- Картка Pro -->
             <article class="pricing-card pricing-card--featured">
-                <div class="card-badge">PRO • ACTIVE</div>
-                <h3 class="card-title">Pro</h3>
-                <div class="card-price">$29 <span>/ month</span></div>
-                <ul class="card-features">
-                    <li>✓ 5 Users</li>
-                    <li>✓ 50GB Storage</li>
-                    <li>✓ Priority Support</li>
-                </ul>
-                <button class="btn btn--primary">Get Started</button>
+              <div class="card-badge">PRO • ACTIVE</div>
+
+              <h3 class="card-title">Pro</h3>
+
+              <div class="card-price">$29 <span>/ місяць</span></div>
+
+              <ul class="card-features">
+                <li>✓ 5 користувачів</li>
+                <li>✓ 50 ГБ сховища</li>
+                <li>✓ Пріоритетна підтримка</li>
+              </ul>
+
+              <p>
+                Для команд із розширеним сховищем і пріоритетною підтримкою.
+              </p>
+
+              <button class="btn btn--primary" type="button">
+                Почати з Pro
+              </button>
             </article>
 
-            <!-- Картка Enterprise -->
             <article class="pricing-card">
-                <h3 class="card-title">Enterprise</h3>
-                <div class="card-price">$99 <span>/ month</span></div>
-                <ul class="card-features">
-                    <li>✓ Unlimited</li>
-                    <li>✓ 1TB Storage</li>
-                    <li>✓ 24/7 Support</li>
-                </ul>
-                <button class="btn">Contact</button>
+              <h3 class="card-title">Enterprise</h3>
+
+              <div class="card-price">$99 <span>/ місяць</span></div>
+
+              <ul class="card-features">
+                <li>✓ Необмежено користувачів</li>
+                <li>✓ 1 ТБ сховища</li>
+                <li>✓ Підтримка 24/7</li>
+              </ul>
+
+              <p>
+                Для великих організацій із необмеженою кількістю користувачів.
+              </p>
+
+              <button class="btn" type="button">Зв’язатися з нами</button>
             </article>
+          </div>
         </div>
-    </div>
-</section>
-</body>
+      </section>
+
+      <section
+        class="pricing-section"
+        id="benefits"
+        aria-labelledby="benefits-title"
+      >
+        <div class="container">
+          <h2 class="section-title" id="benefits-title">
+            Що входить до планів
+          </h2>
+          <p class="section-lead">
+            Усі плани містять безпечне зберігання даних, функції для команд і
+            доступ до підтримки.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Сервіс тарифних планів. Усі права захищено.</p>
+      </div>
+    </footer>
+  </body>
 </html>
