@@ -43,6 +43,33 @@ main {
     box-sizing: border-box;
 }
 
+.labs-navigation {
+    margin-bottom: 2rem;
+}
+
+.labs-navigation ul {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.labs-navigation a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    background-color: var(--surface-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.labs-navigation a:hover,
+.labs-navigation a:focus-visible {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
 .info-block {
     background: var(--surface-color);
     padding: 1.5rem;
