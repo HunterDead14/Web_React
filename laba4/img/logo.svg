@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="28" viewBox="0 0 132 28" role="img" aria-label="FlowTask">
+  <rect x="0" y="2" width="24" height="24" rx="7" fill="#4f46e5"/>
+  <path d="M7 10h10M7 14h7M7 18h4" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <text x="32" y="19" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827">FlowTask</text>
+</svg>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowTask</title>
+  <meta name="description" content="Project management for teams that ship every week.">
+  <meta property="og:title" content="FlowTask — Project management for teams">
+  <meta property="og:description" content="Plan the week, run the sprint and ship on Friday with FlowTask.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flowtask.vercel.app/">
+  <meta property="og:image" content="https://flowtask.vercel.app/img/hero.jpg">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "FlowTask Pro",
+    "description": "Project management for teams that ship every week.",
+    "brand": {
+      "@type": "Brand",
+      "name": "FlowTask"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1284"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "19.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <img class="logo" src="img/logo.svg" alt="FlowTask" width="132" height="28">
+
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-item" data-target="features">Product</div>
+      <div class="nav-item" data-target="pricing">Pricing</div>
+      <div class="nav-item" data-target="faq">FAQ</div>
+      <div class="nav-item" data-target="trial">Trial</div>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="link-quiet" href="about.html">About</a>
+      <a class="link-quiet" href="#" aria-label="Sign in">Sign in</a>
+      <button class="btn btn--primary" role="button" aria-label="Get started button" id="header-cta">Get started</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div class="hero__copy">
+        <h1>FlowTask</h1>
+        <p class="hero__lead">Plan the week, run the sprint and ship on Friday — without three
+          different tools arguing about who owns what.</p>
+        <div class="button button--primary button--lg" id="hero-cta">Get started</div>
+        <p class="hero__note muted">Free for 14 days. No credit card required.</p>
+      </div>
+      <img class="hero__image" src="img/hero.jpg">
+    </div>
+  </section>
+
+  <section class="section section--alt" id="features">
+    <div class="shell">
+      <div class="section__head">
+        <h4>Why FlowTask?</h4>
+        <p class="muted">Three things teams ask us for, built in rather than bolted on.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <img class="card__icon" src="img/feature-1.svg" alt="icon" width="40" height="40">
+          <h3>Boards that match your process</h3>
+          <p class="soft">Columns, swimlanes and WIP limits you can change on a Monday morning
+            without filing a ticket with anyone.</p>
+          <a class="card__link" href="#">Learn more</a>
+        </div>
+
+        <div class="card">
+          <img class="card__icon" src="img/feature-2.svg" alt="" width="40" height="40">
+          <h3>Automations without scripts</h3>
+          <p class="muted">Move a card, notify a channel, close the loop. Rules are plain
+            sentences, so the whole team can read them.</p>
+          <a class="card__link" href="#">Learn more</a>
+        </div>
+
+        <div class="card">
+          <img class="card__icon" src="img/feature-3.svg" alt="" width="40" height="40">
+          <h3>Reports that answer questions</h3>
+          <p class="muted">Cycle time, throughput and the one chart your manager actually opens
+            before the weekly review.</p>
+          <a class="card__link" href="#">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="shell">
+      <div class="section__head">
+        <h2>How it works</h2>
+        <p class="muted">Most teams are running their first real sprint inside an hour.</p>
+      </div>
+
+      <div class="grid-3">
+        <div>
+          <span class="step__num">1</span>
+          <h3>Import your backlog</h3>
+          <p class="muted">CSV, Jira or Trello. Nothing is thrown away — you can roll it back for
+            thirty days.</p>
+        </div>
+        <div>
+          <span class="step__num">2</span>
+          <h3>Shape the board</h3>
+          <p class="muted">Pick a template, then rename, reorder and delete until it looks like
+            the way your team already works.</p>
+        </div>
+        <div>
+          <span class="step__num">3</span>
+          <h3>Invite the team</h3>
+          <p class="muted">Everyone sees the same board, and the weekly report writes itself on
+            Friday afternoon.</p>
+        </div>
+      </div>
+
+      <p><a href="#pricing-details">See the full plan comparison</a></p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="pricing">
+    <div class="shell">
+      <div class="section__head">
+        <h2>Pricing</h2>
+        <p class="muted">Monthly, per workspace. Cancel whenever you like.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="plan">
+          <h3>Basic</h3>
+          <p class="plan__price">$10 <span class="plan__period">/ month</span></p>
+          <ul class="plan__list">
+            <li>1 user</li>
+            <li>5 GB storage</li>
+            <li>Basic support</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="card__link" href="#">Read more</a>
+          </div>
+        </div>
+
+        <div class="plan plan--featured">
+          <h3>Pro</h3>
+          <p class="plan__price">$29 <span class="plan__period">/ month</span></p>
+          <ul class="plan__list">
+            <li>5 users</li>
+            <li>50 GB storage</li>
+            <li>Priority support</li>
+            <li>Automations</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="card__link" href="#">Read more</a>
+          </div>
+        </div>
+
+        <div class="plan">
+          <h3>Enterprise</h3>
+          <p class="plan__price">$99 <span class="plan__period">/ month</span></p>
+          <ul class="plan__list">
+            <li>Unlimited users</li>
+            <li>1 TB storage</li>
+            <li>24/7 support</li>
+            <li>SSO and audit log</li>
+          </ul>
+          <div class="plan__cta">
+            <a class="card__link" href="#">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="shell">
+      <div class="section__head">
+        <h2>What teams say</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="quote">
+          <p>We moved eleven people over on a Tuesday and nobody asked for the old tool back.</p>
+          <div class="quote__person">
+            <img class="quote__avatar" src="img/avatar-1.jpg" alt="" width="44" height="44">
+            <div>
+              <div class="quote__name">Marta Kovalenko</div>
+              <div class="quote__role">Head of Delivery, Northline</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>The reports finally match what I see on the board, so our Friday review takes ten
+            minutes instead of an hour.</p>
+          <div class="quote__person">
+            <img class="quote__avatar" src="img/avatar-2.jpg" alt="" width="44" height="44">
+            <div>
+              <div class="quote__name">Daniel Reyes</div>
+              <div class="quote__role">Engineering Manager, Pilotgrid</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>Automations replaced the spreadsheet we had been quietly maintaining for two years.</p>
+          <div class="quote__person">
+            <img class="quote__avatar" src="img/avatar-3.jpg" alt="" width="44" height="44">
+            <div>
+              <div class="quote__name">Ines Farkas</div>
+              <div class="quote__role">Ops Lead, Corvus Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="faq">
+    <div class="shell">
+      <div class="section__head">
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="faq">
+
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="true">Can I move my data out again?</button>
+        <div class="faq__a">
+          <p>Yes. Every board exports to CSV and JSON, including comments and history, and the
+            export runs on demand rather than on a schedule.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="true">Do you offer a student plan?</button>
+        <div class="faq__a">
+          <p>Students and non-profits get Pro at no cost for a year. Write to us from an
+            institutional address and we will switch the workspace over.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="true">Where is my data stored?</button>
+        <div class="faq__a">
+          <p>In the EU by default. Enterprise workspaces can pin storage to a specific region and
+            receive an audit log of every access.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="true">What happens after the trial?</button>
+        <div class="faq__a">
+          <p>The workspace becomes read-only for thirty days. Nothing is deleted until you ask us
+            to delete it.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trial">
+    <div class="shell">
+      <div class="trial">
+        <h2>Start your free trial</h2>
+        <p class="trial__lead">Fourteen days of Pro, for the whole team. We will email you once,
+          on the last day.</p>
+
+        <form class="trial__form" id="trial-form">
+          <input class="trial__input" type="text" name="name" placeholder="Your name">
+          <input class="trial__input" type="email" name="email" placeholder="Work email">
+          <input class="trial__input" type="text" name="company" placeholder="Company">
+          <div class="button button--invert" role="button" tabindex="0" id="trial-submit">Start free trial</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="site-footer__cols">
+      <div>
+        <img src="img/logo.svg" alt="FlowTask" width="132" height="28">
+        <p class="muted">Project management for teams that ship every week.</p>
+        <div class="social">
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M10.6 7.6 15.3 2h-1.5l-4 4.9L6.4 2H2l5 7.3L2 15.5h1.5l4.2-5.2 3.5 5.2H16l-5.4-7.9Z" fill="#374151"/>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M9 1.5a7.5 7.5 0 0 0-2.4 14.6c.4.1.5-.2.5-.4v-1.4c-2 .4-2.5-.5-2.7-1-.1-.3-.6-1-1-1.2-.3-.2-.8-.6 0-.6.7 0 1.2.7 1.4 1 .8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.2-1.8-.2-3.7-.9-3.7-4 0-.9.3-1.6.8-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.4 7.4 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.2 0 3.1-1.9 3.8-3.7 4 .3.3.6.8.6 1.6v2.3c0 .2.1.5.5.4A7.5 7.5 0 0 0 9 1.5Z" fill="#374151"/>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <path d="M3.4 6.4h2.8v9H3.4v-9Zm1.4-4.2a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2ZM8 6.4h2.7v1.2h.1c.4-.7 1.3-1.4 2.7-1.4 2.9 0 3.4 1.8 3.4 4.2v4.9h-2.8v-4.4c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.5H8v-9Z" fill="#374151"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="site-footer__title">Product</div>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="site-footer__title">Company</div>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="site-footer__title">Resources</div>
+        <ul>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="legal">© 2026 FlowTask. A fictional product used for coursework.</p>
+  </div>
+</footer>
+
+</body>
+</html>
