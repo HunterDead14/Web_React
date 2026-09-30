@@ -3,4 +3,4 @@ Disallow: /admin/
 
 Allow: /
 
-Sitemap: https://flowtask.vercel.app/sitemap.xml
+Sitemap: https://web-react-liard.vercel.app/sitemap.xml
