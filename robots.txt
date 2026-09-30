@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://web-react-liard.vercel.app/sitemap.xml
