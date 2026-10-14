@@ -1,4 +1,4 @@
-import { getShow, saveNote } from './state.js';
+import { getShow, notes, saveNote } from './state.js';
 
 const dialog = document.querySelector('#details');
 const title = document.querySelector('#details-title');
@@ -6,7 +6,13 @@ const summary = document.querySelector('#details-summary');
 const link = document.querySelector('#details-link');
 const form = document.querySelector('#note-form');
 const ratingInput = document.querySelector('#note-rating');
+const noteInput = document.querySelector('#note-text');
 const errorText = document.querySelector('#note-rating-error');
+const cancelButton = form.querySelector('button[type="button"]');
+const status = document.querySelector('#status');
+const results = document.querySelector('#results');
+
+const RATING_ERROR = 'Оцінка має бути цілим числом від 1 до 10';
 
 /** id серіалу, який зараз показує діалог. */
 let currentId = null;
@@ -22,8 +28,15 @@ export function openDetails(id) {
   currentId = id;
 
   title.textContent = show.name;
-  summary.innerHTML = show.summary;
+  // Опис TVmaze — HTML-розмітка, але показати його треба як текст, тож спершу розбираємо її в
+  // окремому документі й дістаємо звідти сам текст.
+  summary.textContent = summaryToText(show.summary);
   link.href = show.url;
+
+  const note = notes.get(id);
+  ratingInput.value = note ? String(note.rating) : '';
+  noteInput.value = note ? note.text : '';
+  clearRatingError();
 
   dialog.showModal();
 }
@@ -37,21 +50,55 @@ export function openDetails(id) {
 export function initDetails(refresh) {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (currentId === null) return;
 
-    const rating = Number(ratingInput.value);
-    if (rating < 1 || rating > 10) {
-      errorText.textContent = 'Оцінка має бути цілим числом від 1 до 10';
+    const rating = ratingInput.valueAsNumber;
+    if (!Number.isInteger(rating) || rating < 1 || rating > 10) {
+      showRatingError();
       return;
     }
 
-    saveNote(currentId, { rating, text: form.elements.note.value });
+    const id = currentId;
+    const show = getShow(id);
+    saveNote(id, { rating, text: noteInput.value });
+
     dialog.close();
     refresh();
+    // Картку перемальовано, тож «Детальніше» — уже нова кнопка: фокус переводимо в тому самому
+    // обробнику, інакше він лишиться на <body>.
+    results.querySelector(`[data-id="${id}"] [data-action="details"]`)?.focus();
+    status.textContent = `Нотатку до ${show.name} збережено`;
   });
 
-  for (const button of dialog.querySelectorAll('button')) {
-    if (button.type !== 'submit') {
-      button.addEventListener('click', () => dialog.close());
-    }
-  }
+  // Щойно значення виправили, помилка зникає.
+  ratingInput.addEventListener('input', () => {
+    if (ratingInput.hasAttribute('aria-invalid')) clearRatingError();
+  });
+
+  cancelButton.addEventListener('click', () => dialog.close());
+}
+
+function showRatingError() {
+  errorText.textContent = RATING_ERROR;
+  ratingInput.setAttribute('aria-invalid', 'true');
+  ratingInput.focus();
+}
+
+function clearRatingError() {
+  errorText.textContent = '';
+  ratingInput.removeAttribute('aria-invalid');
+}
+
+/**
+ * Текст опису без розмітки TVmaze. Розбір іде в окремому, неробочому документі: у DOM застосунку
+ * не потрапляє жодного елемента з опису, скрипти й обробники з нього не виконуються, а картинки
+ * не завантажуються.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function summaryToText(html) {
+  const parsed = new DOMParser().parseFromString(html, 'text/html');
+  const blocks = [...parsed.body.children].map((block) => block.textContent.trim());
+  return (blocks.length ? blocks.join('\n\n') : parsed.body.textContent).trim();
 }

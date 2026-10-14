@@ -49,8 +49,8 @@ function createCard(show) {
     card.querySelector('.card__mine').hidden = false;
 
     const noteBlock = card.querySelector('.card__note');
-    noteBlock.hidden = false;
-    noteBlock.innerHTML = note.text;
+    noteBlock.textContent = note.text;
+    noteBlock.hidden = note.text === '';
   }
 
   return card;

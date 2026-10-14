@@ -95,11 +95,20 @@
       <p class="details__source">
         <a id="details-link" href="https://www.tvmaze.com">Сторінка серіалу на TVmaze</a>
       </p>
-      <form id="note-form" class="note-form">
+      <form id="note-form" class="note-form" novalidate>
         <h3 class="note-form__title">Моя оцінка й нотатка</h3>
         <div class="field">
           <label for="note-rating">Моя оцінка (ціле число від 1 до 10)</label>
-          <input id="note-rating" name="rating" type="number" min="1" max="10" step="1" required />
+          <input
+            id="note-rating"
+            name="rating"
+            type="number"
+            min="1"
+            max="10"
+            step="1"
+            required
+            aria-describedby="note-rating-error"
+          />
           <p id="note-rating-error" class="field__error"></p>
         </div>
         <div class="field">
