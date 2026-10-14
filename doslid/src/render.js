@@ -1,5 +1,5 @@
 /** @typedef {import('./state.js').Show} Show */
-import { shows, watchlist } from './state.js';
+import { notes, shows, watchlist } from './state.js';
 
 const results = document.querySelector('#results');
 const status = document.querySelector('#status');
@@ -42,6 +42,16 @@ function createCard(show) {
   card
     .querySelector('[data-action="toggle"]')
     .setAttribute('aria-pressed', String(watchlist.has(show.id)));
+
+  const note = notes.get(show.id);
+  if (note) {
+    setField(card, 'my-rating', note.rating);
+    card.querySelector('.card__mine').hidden = false;
+
+    const noteBlock = card.querySelector('.card__note');
+    noteBlock.hidden = false;
+    noteBlock.innerHTML = note.text;
+  }
 
   return card;
 }
