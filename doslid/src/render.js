@@ -1,4 +1,12 @@
 /** @typedef {import('./state.js').Show} Show */
+import { shows } from './state.js';
+
+const results = document.querySelector('#results');
+const status = document.querySelector('#status');
+const cardTemplate = document.querySelector('#show-card');
+
+/** Порожнє значення в даних показуємо прочерком. */
+const DASH = '—';
 
 /**
  * C1. Показує серіали в списку #results — по картці з шаблону #show-card на кожен, у тому
@@ -7,23 +15,41 @@
  * @param {readonly Show[]} list серіали, які треба показати
  */
 export function renderShows(list) {
-  const results = document.querySelector('#results');
+  const cards = list.map((show) => createCard(show));
+  results.replaceChildren(...cards);
 
-  results.innerHTML = list
-    .map(
-      (show) => `
-      <li class="card" data-id="${show.id}">
-        <h3 class="card__title" lang="en">${show.name}</h3>
-        <p class="card__meta">
-          <span>${show.year}</span> · <span lang="en">${show.genres.join(', ')}</span>
-        </p>
-        <p class="card__rating">Оцінка TVmaze: <span>${show.rating}</span></p>
-        <div class="card__actions">
-          <button type="button" class="btn btn--toggle" data-action="toggle">До списку</button>
-          <button type="button" class="btn" data-action="details">Детальніше</button>
-        </div>
-      </li>
-    `,
-    )
-    .join('');
+  status.textContent = cards.length ? `Знайдено: ${cards.length} з ${shows.length}` : 'Нічого не знайдено';
+}
+
+/**
+ * Картка — клон шаблону #show-card. Дані потрапляють у DOM лише текстом (textContent) або
+ * значенням атрибута, тому розмітка в назві серіалу лишається текстом.
+ *
+ * @param {Show} show
+ * @returns {HTMLLIElement}
+ */
+function createCard(show) {
+  const card = cardTemplate.content.firstElementChild.cloneNode(true);
+  card.dataset.id = String(show.id);
+
+  setField(card, 'name', show.name);
+  setField(card, 'year', show.year ?? DASH);
+  setField(card, 'rating', show.rating ?? DASH);
+  setField(card, 'genres', show.genres.length ? show.genres.join(', ') : DASH);
+
+  return card;
+}
+
+/**
+ * Заповнює всі місця [data-field] на картці: одне поле трапляється кілька разів — назва є і в
+ * заголовку, і в прихованих частинах імен обох кнопок.
+ *
+ * @param {HTMLElement} card
+ * @param {string} field
+ * @param {string | number} value
+ */
+function setField(card, field, value) {
+  for (const node of card.querySelectorAll(`[data-field="${field}"]`)) {
+    node.textContent = String(value);
+  }
 }
