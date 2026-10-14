@@ -37,7 +37,10 @@ export function initFilters(refresh) {
   form.addEventListener('reset', (event) => {
     event.preventDefault();
     for (const field of form.elements) {
-      if (field instanceof HTMLInputElement && (field.type === 'checkbox' || field.type === 'radio')) {
+      if (
+        field instanceof HTMLInputElement &&
+        (field.type === 'checkbox' || field.type === 'radio')
+      ) {
         field.checked = false;
       } else if (field instanceof HTMLInputElement || field instanceof HTMLSelectElement) {
         field.value = '';

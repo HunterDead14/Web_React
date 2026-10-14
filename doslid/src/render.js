@@ -18,7 +18,9 @@ export function renderShows(list) {
   const cards = list.map((show) => createCard(show));
   results.replaceChildren(...cards);
 
-  status.textContent = cards.length ? `Знайдено: ${cards.length} з ${shows.length}` : 'Нічого не знайдено';
+  status.textContent = cards.length
+    ? `Знайдено: ${cards.length} з ${shows.length}`
+    : 'Нічого не знайдено';
 }
 
 /**
