@@ -1,5 +1,5 @@
 /** @typedef {import('./state.js').Show} Show */
-import { shows } from './state.js';
+import { shows, watchlist } from './state.js';
 
 const results = document.querySelector('#results');
 const status = document.querySelector('#status');
@@ -36,6 +36,12 @@ function createCard(show) {
   setField(card, 'year', show.year ?? DASH);
   setField(card, 'rating', show.rating ?? DASH);
   setField(card, 'genres', show.genres.length ? show.genres.join(', ') : DASH);
+
+  // Стан «До списку» живе в state.js, тож кожна перемальована картка бере його звідти: текст і
+  // ім'я кнопки при цьому не змінюються, стан передає лише aria-pressed.
+  card
+    .querySelector('[data-action="toggle"]')
+    .setAttribute('aria-pressed', String(watchlist.has(show.id)));
 
   return card;
 }
