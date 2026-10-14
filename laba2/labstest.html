@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛР 2: Дослідження CSS</title>
+    <!-- Підключення зовнішнього файлу стилів -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 4.2: Внутрішні стилі для перевірки каскаду -->
+    <style>
+        .color-internal { color: Red; }
+    </style>
+</head>
+<body class="inheritance-body">
+
+<!-- Box-model -->
+<div class="box box-content">Контент бокс</div>
+<div class="box box-border"> Бордер бокс</div>
+
+
+<!-- Cascade -->
+<p class="color-external color-internal"> Якого я кольору</p>
+
+<!-- Specificity -->
+<p id="my-id" class="c1 c2 c3 c4 c5"> Who win?</p>
+
+<!-- Inheritance -->
+<div class="inheritance-test">
+    <p>Мого кота звати Huns</p>
+    <a href="#">Посилання на мого кота</a>
+    <button>кнопка</button>
+</div>
+
+<!-- CSS Variables -->
+<div class="card"> Приклад картки 1</div>
+<div class="card dark-card">Приклад картки 2</div>
+
+</body>
+</html>
