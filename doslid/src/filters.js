@@ -1,5 +1,7 @@
 /** @typedef {import('./state.js').Filters} Filters */
 
+const form = document.querySelector('#filters');
+
 /**
  * C3. Повертає поточні значення форми фільтрів #filters. Поки C3 не виконано, фільтрів немає,
  * і список показує всі серіали. Специфікація — ТЗ, C3.
@@ -7,8 +9,6 @@
  * @returns {Filters}
  */
 export function readFilters() {
-  const form = document.querySelector('#filters');
-
   return {
     query: form.elements.query.value,
     genre: form.elements.genre.value,
@@ -23,8 +23,26 @@ export function readFilters() {
  * @param {() => void} refresh перемальовує список для поточних фільтрів
  */
 export function initFilters(refresh) {
-  const form = document.querySelector('#filters');
+  form.addEventListener('input', refresh);
+  form.addEventListener('change', refresh);
 
-  form.addEventListener('input', () => refresh());
-  form.addEventListener('change', () => refresh());
+  // Enter у полі пошуку надсилає форму, а це перезавантажило б сторінку й стерло стан.
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    refresh();
+  });
+
+  // Подія reset приходить до того, як браузер очистить поля, тож власним очищенням ми
+  // гарантуємо, що refresh() прочитає вже порожні значення.
+  form.addEventListener('reset', (event) => {
+    event.preventDefault();
+    for (const field of form.elements) {
+      if (field instanceof HTMLInputElement && (field.type === 'checkbox' || field.type === 'radio')) {
+        field.checked = false;
+      } else if (field instanceof HTMLInputElement || field instanceof HTMLSelectElement) {
+        field.value = '';
+      }
+    }
+    refresh();
+  });
 }
