@@ -14,7 +14,7 @@ let venues = [];
 
 /* Mobile menu */
 
-const menuToggle = document.querySelector('.site-header button');
+const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.getElementById('site-nav');
 
 menuToggle.addEventListener('click', () => {
