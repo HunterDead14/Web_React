@@ -81,7 +81,7 @@
     "name": "Royal Court",
     "city": "Львів",
     "sport": "Теніс",
-    "pricePerhour": 1200,
+    "pricePerHour": 1200,
     "rating": 4.4,
     "description": "Критий корт преміум-класу: кондиціювання, персональний тренер, прокат екіпірування.",
     "image": "img/venues/royal-court.webp",
