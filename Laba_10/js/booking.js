@@ -64,7 +64,7 @@ function confirmBooking(event) {
     total: current.venue.pricePerHour * hours,
   });
 
-  renderBookingsCount();
+  renderBookingCount();
   renderBookingsList();
   dialog.close();
 }
