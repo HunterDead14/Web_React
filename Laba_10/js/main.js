@@ -31,24 +31,25 @@ function readFilters() {
   return { city: form.city.value, sport: form.sport.value };
 }
 
+let searchToken = 0;
+
 async function handleSearch(event) {
   event.preventDefault();
+  const token = ++searchToken;
   status.textContent = 'Шукаємо…';
   results.setAttribute('aria-busy', 'true');
 
   const found = await fetchVenues(readFilters());
+  if (token !== searchToken) return;
+
   renderResults(results, found);
   venues = found;
   results.setAttribute('aria-busy', 'false');
+  // Status line, announced by screen readers (role="status")
+  status.textContent = found.length ? `Знайдено: ${found.length}` : 'Нічого не знайдено';
 }
 
 form.addEventListener('submit', handleSearch);
-
-// Status line, announced by screen readers (role="status")
-form.addEventListener('submit', () => {
-  const count = results.children.length;
-  status.textContent = count ? `Знайдено: ${count}` : 'Нічого не знайдено';
-});
 
 /* Booking */
 
